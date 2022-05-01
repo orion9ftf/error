@@ -181,7 +181,32 @@ Y luego `$ printenv | grep CLIENT`
 
 ****************************************************************************************
 
+### Editar navegador por defecto en VSCODE:
 
+1.- Preferencias
+
+2.- Configuración
+
+3.- Extensiones
+
+4.- Live Server config
+
+5.- Editar en settings.json
+ 
+> tiene que quedar así:
+
+```json
+{
+    "workbench.iconTheme": "material-icon-theme",
+    "liveServer.settings.CustomBrowser": "chrome",
+    "liveServer.settings.donotShowInfoMsg": true,
+    "security.workspace.trust.untrustedFiles": "open",
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "window.zoomLevel": 1
+}
+```
 
 
 
