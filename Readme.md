@@ -18,6 +18,74 @@ $ export warnflags=-Wno-error=implicit-function-declaration
 $ rvm install 2.5.3
 ```
 
+Solución problema:
+
+rvm problem
+
+```
+$ rvm use 3.0.0
+
+RVM is not a function, selecting rubies with 'rvm use ...' will not work.
+
+You need to change your terminal emulator preferences to allow login shell.
+Sometimes it is required to use `/bin/bash --login` as the command.
+Please visit https://rvm.io/integration/gnome-terminal/ for an example.
+```
+
+Solutions: 
+
+```shell
+$ source $HOME/.rvm/scripts/rvm
+$ rvm use 3.0.0
+```
+
+
+```shell
+Running: __rvm_make -j8
+```
+
+```shell
+$ RUBY_CONFIGURE_OPTS="--disable-dtrace" rvm install 2.6.8
+```
+
+***Instalar rails***
+
+```shell
+$ brew install shared-mime-info
+```
+
+
+Al dar el comando de arriba aparece esto: 
+****
+
+A CA file has been bootstrapped using certificates from the system
+keychain. To add additional certificates, place .pem files in
+  /opt/homebrew/etc/openssl@3/certs
+
+and run
+  /opt/homebrew/opt/openssl@3/bin/c_rehash
+
+openssl@3 is keg-only, which means it was not symlinked into /opt/homebrew,
+because macOS provides LibreSSL.
+
+If you need to have openssl@3 first in your PATH, run:
+  echo 'export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"' >> ~/.zshrc
+
+For compilers to find openssl@3 you may need to set:
+  export LDFLAGS="-L/opt/homebrew/opt/openssl@3/lib"
+  export CPPFLAGS="-I/opt/homebrew/opt/openssl@3/include"
+
+For pkg-config to find openssl@3 you may need to set:
+  export PKG_CONFIG_PATH="/opt/homebrew/opt/openssl@3/lib/pkgconfig"
+****
+
+Luego 
+
+```shell
+$ gem install rails -v 6.0.0
+```
+
+
 
 **********************************************************************
 
@@ -207,6 +275,64 @@ Y luego `$ printenv | grep CLIENT`
     "window.zoomLevel": 1
 }
 ```
+
+
+******************************************************************************************
+
+### INSTALAR BREW:
+
+1.- $ echo 'eval $(/opt/homebrew/bin/brew shellenv)' >> /Users/“user”/.zprofile
+
+2.- eval $(/opt/homebrew/bin/brew shellenv)
+
+3.- brew help
+
+
+### Heroku install:
+$ brew tap heroku/brew && brew install heroku
+
+
+### Rails:
+
+```shell
+$ rails routes —expanded
+$  rails db:migration create_articles
+```
+
+```rb
+t.string :title
+t.text :description
+```
+
+```shell
+errors:
+> articles.errors.full_messages
+```
+*****************************************************
+
+### Font-size
+
+1em = 16px
+40px / 16 (1em) = 2.5em
+
+Viewport es el tamaño de la ventana del navegador. 1vw = 1% del ancho de la ventana gráfica. Si la ventana gráfica tiene 50 cm de ancho, 1vw es 0,5 cm.
+
+Background-image options:
+
+```
+1.- background-image: url(“imagen.png”);
+2.- background-image: url(./assets/img/imagen.png);
+3.- background-image: url(https://www…etc);
+4.- background-image: url(assets/img/imagen.png);
+5.- background-image: url(imagen.png);
+6.- background-image: url(“/assets/img/imagen.png”);
+```
+
+
+
+Copiar la ssh.pub de windows: clip < ~/.ssh/id_rsa.pub
+Copiar la ssh en Mac pbcopy < ~/.ssh/id_rsa.pub
+Copiar la ssh en linux(primero descargar una pequeña app que nos ayuda a copiar la ssh): sudo apt install xclip | luego copia este comando, ayuda a copiar la ssh para pegarla en el repositorio GitHub: xclip -sel clip < ~/.ssh/id_rsa.pub
 
 
 
