@@ -489,6 +489,20 @@ Copiar la ssh en Mac pbcopy < ~/.ssh/id_rsa.pub
 Copiar la ssh en linux(primero descargar una pequeña app que nos ayuda a copiar la ssh): sudo apt install xclip | luego copia este comando, ayuda a copiar la ssh para pegarla en el repositorio GitHub: xclip -sel clip < ~/.ssh/id_rsa.pub
 ```
 
+### iTermocil:
+
+```shell
+$ brew update
+$ brew install TomAnthony/brews/itermocil
+```
+Or
+```
+$ git clone https://github.com/TomAnthony/homebrew-brews
+```
+
+Run `$ brew style --fix Formula` inside that repo
+Runbrew `$ install --build-from-source ./itermocil.rb`
+Run `$ mkdir ~/.itermocil` then add your `.yml` files
 
 
 
