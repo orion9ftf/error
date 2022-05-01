@@ -328,11 +328,167 @@ Background-image options:
 6.- background-image: url(“/assets/img/imagen.png”);
 ```
 
+***********************************************************************
+
+### Git Github:
+
+`$ git branch` | otra_rama
+
+`$ git stash` => va a guardar los cambios sin commit
+
+`$ git stash list` => muestra los stash en progress WIP (work in progress)
+
+`$ git checkout master` => me cambio de rama y sigo trabajando en otra cosa
+
+`$ git checkout otra_rama` | vuelvo a mi rama que tiene el stash
+
+`$ git stash pop` | me muestra los cambios que no están con commit y me muestra como estaba el código
+
+* Si necesito guardar esos cambios de stash en otra rama nueva (y además más crearla):
 
 
+`$ git stash branch rama_dos`
+
+luego: `$ git status` me muestra que hay cambios los guardo con: `$ git commit -m’save changes’`
+
+
+### Commit con fecha del cumple:
+
+```
+1.- crear proyecto
+2.- inicializar git $ git init
+3.- agregar cambios $ git add .
+4.- Forzar commit con la fecha $ git commit -m”contenido” —date 1989-04-30
+5.- crear repo en Github
+6.- agregar remoto
+7.- subirlo: $ git push origin master —force
+8.- taran!!
+```
+
+
+### Config Git Github
+
+Git y Github
+
+```shell
+$ git config --global user.name "Tu Nombre"
+$ git config --global user.email tucorreo@mail.com
+```
+
+```
+$ git config --list
+$ user.name=Nombre Apellido
+$ user.email=micorreo@mail.com
+```
+
+Si todo va bien, escogemos un archivo e inicializamos git
+
+```
+$ git init
+$ ls -la
+```
+
+```
+$ git log / nos muestra todos los commits que hemos realizado
+
+$ git status
+```
+
+Ctrl + shift + p | esto abre una configuración en el vscode para instalar shell
+
+***Llaves ssh***
+
+```
+$ ls -la ~/.ssh. | esto listará las llaves
+
+$ ssh-keygen -t rsa -b 4096 -C tucorreo@email.com
+$ enter
+$ enter
+```
+
+
+Debiera crease dos archivos:
+
+```
+id_rsa.pub
+id_rsa
+```
+
+```shell
+$ eval "$(ssh-agent -s)"
+```
+
+Si todo funciona bien obtendremos una respuesta como esta: Agent pid 59566
+
+Añadir la llave al archivo:
+
+```shell
+$ ssh-add ~/.ssh/id_rsa
+$ enter
+```
+
+Copiar la llave en Linux:
+
+```shell
+$ sudo apt install xclip
+$ xclip -sel clip < ~/.ssh/id_rsa.pub
+```
+
+Copiar la llave en Mac:
+
+```shell
+$ pbcopy < ~/.ssh/id_rsa.pub
+```
+
+Copiar la llave en Windows:
+
+```shell
+$ clip < ~/.ssh/id_rsa.pub
+```
+
+***Llevamos la llave a nuestro Repositorio de Github y la pegamos.***
+
+
+Esto es para ver si funciona nuestra llave:
+
+```
+$ ssh -T git@github.com
+```
+
+***Debiera devolver: `Hi username! Your’ve …`***
+
+Verificar si se creó la llave:
+
+```shell
+$ ssh -v
+$ ls .ssh
+```
+**************
+
+```shell
+delete changes, undo commits
+undo changes since last commit:
+
+$ git clean -fd
+
+$ git reset --hard
+
+delete last commit from github:
+
+$ git reset HEAD^ --hard
+$ git push -f
+
+git uncheck last commit:
+
+$ git reset --soft HEAD~1
+```
+
+```
 Copiar la ssh.pub de windows: clip < ~/.ssh/id_rsa.pub
 Copiar la ssh en Mac pbcopy < ~/.ssh/id_rsa.pub
 Copiar la ssh en linux(primero descargar una pequeña app que nos ayuda a copiar la ssh): sudo apt install xclip | luego copia este comando, ayuda a copiar la ssh para pegarla en el repositorio GitHub: xclip -sel clip < ~/.ssh/id_rsa.pub
+```
+
 
 
 
